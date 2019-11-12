@@ -1,0 +1,83 @@
+﻿/* ******** UI-STYLE ******** */
+
+.ui-style													{}
+.ui-style h4												{color:#4c8cfc}
+.ui-style h5												{color:#646464}
+
+
+.ui-button 													{display:block; margin:0 auto; width:100%; height:45px; background-color:#4c8cfc; border-radius:100px; border:1px solid #4c8cfc; outline:none; font-size:1rem; font-weight:400; color:white}
+.ui-button.focus,
+.ui-button.gray												{background-color:#ccc; border-color:#ccc}
+.ui-button.red												{background-color:#f55220; border-color:#f55220}
+.ui-button.white											{background-color:white; color:#4c8cfc}
+.ui-button.gray.white										{color:#ccc}
+
+
+.ui-input													{}
+.ui-input label				 								{position:relative; display:block}
+.ui-input label input										{width:100%; height:45px; line-height:45px; border:none; border-bottom:1px solid #ccc; font-size:inherit; box-sizing:border-box}
+.ui-input label + label										{margin-top:8px}
+
+
+.ui-select													{display:table; width:100%}
+.ui-select ul												{margin-left:-10px; margin-top:-10px}
+.ui-select ul li											{float:left; margin-top:10px}
+.ui-select ul li label										{padding-left:10px}
+.ui-select.half ul li										{width:50%}
+.ui-select.third ul li										{width:33.33%}
+.ui-select.quarter ul li									{width:25%}
+
+.ui-select label											{display:block; height:45px}
+.ui-select select											{width:100%; height:100%; padding-right:24px; background-color:white; border:none; border-bottom:1px solid #ccc}
+.ui-select select											{background:url(/view/img/icon/drop_black.svg) no-repeat right 5px center / 14px}
+.ui-select select option:first-child						{display:none}
+
+
+.ui-check													{}
+.ui-check label												{position:relative; display:block; padding:0.3em 0; font-size:0; overflow:hidden}
+.ui-check label span										{display:inline-block; vertical-align:middle}
+.ui-check label input + span								{vertical-align:middle; width:25px; height:25px; margin-right:5px; border-radius:100%; background:url(/view/img/icon/check_gray.svg) no-repeat center / 100%}
+.ui-check label input:checked + span						{background-image:url(/view/img/icon/check_blue.svg)}
+.ui-check label span + span									{margin-bottom:1px; font-size:1rem}
+.ui-check input												{position:absolute; left:-9999px; top:0}
+
+
+
+/* ******** UI-POPUP ******** */
+
+.ui-toast													{position:fixed; left:50%; top:90%; padding:6px 12px; background-color:rgba(0,0,0,0.75); border-radius:28px; font-size:1rem; font-weight:normal; color:#f8f8f8; opacity:0; transition:opacity 0.4s; transform:translate(-50%,-50%); z-index:9999}
+.ui-toast.focus												{opacity:1}
+
+.ui-popup													{position:fixed; left:0; top:0; width:100%; height:100%; display:none; z-index:9999}
+.ui-popup.focus												{display:block}
+.ui-popup > span											{position:absolute; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.4)}
+.ui-popup > span.false										{background-color:transparent}
+
+.ui-popup table 											{width:100%; height:100%; text-align:center; font-size:0}
+.ui-popup table td											{width:100%; height:100%}
+
+.ui-popup .box												{position:relative; display:inline-block; vertical-align:middle; width:85%; max-width:450px; padding:25px; background-color:white; border-radius:10px; box-shadow: 0 0px 8px rgba(0,0,0,0.1); font-family:"NotoSansKR";  overflow:hidden; box-sizing:border-box}
+.ui-popup .box h4											{margin-bottom:0.6em}
+.ui-popup .box p											{margin-bottom:1.2em; line-height:1.4; text-align:justify; font-size:1.125rem; white-space:normal; word-break:break-all}
+.ui-popup .box button										{display:block; margin-top:10px; width:100%; height:45px; background-color:#4c8cfc; border-radius:45px; border:1px solid #4c8cfc; font-size:1rem; font-weight:normal; color:white; /* cursor:pointer*/}
+.ui-popup .box button + button								{background-color:white; color:#4c8cfc}
+.ui-popup .box input										{font-size:1rem}
+
+
+
+/* ******** UI-POPUP ******** */
+
+.ui-gallery													{position:relative; width:100%; white-space:nowrap; font-size:0; visibility:hidden; user-select:none; overflow-x:hidden}
+.ui-gallery.focus											{visibility:visible}
+.ui-gallery > ul											{width:100%; height:100%; overflow:visible; box-sizing:border-box; transition:transform 0.4s}
+.ui-gallery > ul.focus										{transition:none}
+.ui-gallery > ul > li										{position:relative; display:inline-block; vertical-align:top; width:100%; height:100%; background-color:#f0f0f0; overflow:hidden}
+.ui-gallery > ul > li > img									{position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover}
+
+.ui-gallery.fade > ul > li									{position:absolute; left:0; top:0; width:100%; height:100%; visibility:hidden; opacity:0; transition:visibility 0.4s, opacity 0.4s; z-index:1}
+.ui-gallery.fade > ul > li.focus							{visibility:visible; opacity:1; z-index:2}
+
+.ui-gallery nav												{position:absolute; left:0; bottom:10px; width:100%; text-align:center; z-index:4}
+.ui-gallery nav a											{display:inline-block; vertical-align:middle; width:10px; height:10px; border-radius:100%; border:1px solid #4c8cfc; opacity:1; cursor:pointer}
+.ui-gallery nav a.focus										{background-color:#4c8cfc}
+.ui-gallery nav a + a										{margin-left:10px}
