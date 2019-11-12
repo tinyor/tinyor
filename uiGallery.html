@@ -32,7 +32,7 @@ main > ul > li + li		{margin-top:50px}
 dl dt					{padding-right:10px}
 dl dd					{padding-left:10px}
 
-h4						{margin-bottom:10px; font-size:22px}
+h4						{margin-bottom:10px; font-size:22px; font-weight:bold}
 input					{appearance:radio; -webkit-appearance:radio}
 button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; border-radius:35px; border-color:#4c8cfc; font-size:15px; font-weight:400; color:white}
 	</style>
@@ -42,7 +42,7 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 	<main id="main">
 		<ul>
 			<li>
-				<h4>MARGIN, MAX-WIDTH, LOOP</h4>
+				<h4>MAX-WIDTH TEST</h4>
 				<div id="ui-gallery-1" class="ui-gallery">
 					<ul>
 						<li><img src="https://tinyor.github.io/tinyor/img/1.jpg"/></li>
@@ -53,7 +53,7 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 				</div>
 			</li>
 			<li>
-				<h4>LEFT-PADDING, MARGIN, MAX-WIDTH, LOOP</h4>
+				<h4>PADDING TEST</h4>
 				<div id="ui-gallery-2" class="ui-gallery">
 					<ul>
 						<li><img src="https://tinyor.github.io/tinyor/img/1.jpg"/></li>
@@ -66,7 +66,7 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 			<li>
 				<dl>
 					<dt>
-						<h4>NO MARGIN, NO PADDING, LOOP</h4>					
+						<h4>MOBILE TEST</h4>					
 						<div id="ui-gallery-3" class="ui-gallery">
 							<ul>
 								<li><img src="https://tinyor.github.io/tinyor/img/1.jpg"/></li>
@@ -76,8 +76,8 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 							</ul>
 						</div>
 					</dt>
-					<dd>
-						<h4>FADE EFFECT</h4>					
+					<dd> 
+						<h4>FADE EFFECT TEST</h4>					
 						<div id="ui-gallery-4" class="ui-gallery">
 							<ul>
 								<li><img src="https://tinyor.github.io/tinyor/img/1.jpg"/></li>
@@ -118,6 +118,7 @@ function doReady(){
 		
 	uiGallery({
 		container	: "ui-gallery-3",
+		padding		: 25,		
 		infinite	: true,
 		autoplay	: true
 		});
