@@ -28,7 +28,7 @@
 	font-weight	: 700;
 	src			: local("Noto Sans KR Bold"), local("NotoSansKR-Bold"), url("/view/font/notosans/NotoSansKR-Bold.woff") format("woff");
 	}
-*/
+
 
 @font-face {
 	font-family	: "NotoSansKR";
@@ -52,7 +52,6 @@
 	src			: local("Noto Sans KR Medium"), local("NotoSansKR-Medium"), url("/view/font/notosans/NotoSansKR-Medium.woff") format("woff");
 	}
 
-/*
 @font-face {
 	font-family	: "NanumGothic";
 	font-style	: normal;
@@ -73,7 +72,6 @@
 	font-weight	: 900;
 	src			: local("Noto Sans KR Black"), local("NotoSansKR-Black"), url("/view/font/notosans/NotoSansKR-Black.woff") format("woff");
 	}
-*/
 
 @font-face {
 	font-family	: "Roboto";
@@ -81,7 +79,7 @@
 	font-weight	: normal;
 	src			: local("Roboto"), local("Roboto-Regular"), url("/view/font/roboto/Roboto-Regular.woff") format("woff");
 	}	
-
+*/
 
 
 /* ******** COMMON ******** */

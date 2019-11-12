@@ -9,7 +9,7 @@ function getFrame(object)						{return (object.contentWindow)?object.contentWind
 
 function nextNode(object)						{while(object){object=object.nextSibling;if(object&&object.nodeType==1&&object.tagName.indexOf("/")<0)break;}return object;}
 function previousNode(object)					{while(object){object=object.previousSibling;if(object&&object.nodeType==1&&object.tagName.indexOf("/")<0)break;}return object;}
-function removeNode(object)						{if(typeof object=="object"){object.parentNode.removeChild(object)};else{}}
+function removeNode(object)						{object.parentNode.removeChild(object);}
 
 function parentTag(object,name)					{for(var i=0;i<10;i++){if(object){var tag=object.tagName.toLowerCase();if(tag==name)return object;else object=object.parentNode;}else return false;}return object;}
 function removeTag(string)						{var value="";var record=true;for(var i=0;i<string.length;i++){var char=string.charAt(i);if(record==true){if(char=="<"&&string.indexOf(">",i)>0)record=false;else value+=char;}if(record==false&&char==">")record=true;}return value;}
