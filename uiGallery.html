@@ -32,7 +32,8 @@ dl dt, dl dd			{vertical-align:top}
 dl dt					{padding-right:10px}
 dl dd					{padding-left:10px}
 
-h4						{margin-bottom:10px; font-size:22px; font-weight:bold}
+h2						{margin-bottom:50px; text-align:center; font-size:32px; font-weight:500; color:#4c8cfc}
+h4						{margin-bottom:10px; font-size:20px; font-weight:500}
 input					{appearance:radio; -webkit-appearance:radio}
 button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; border-radius:35px; border-color:#4c8cfc; font-size:15px; font-weight:400; color:white}
 	</style>
@@ -40,9 +41,10 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 
 <body onload="doReady()">
 	<main id="main">
+		<h2>GALLERY SAMPLE</h2>	
 		<ul>
 			<li>
-				<h4>MAX-WIDTH TEST</h4>
+				<h4>MAX-WIDTH SAMPLE</h4>
 				<div id="ui-gallery-1" class="ui-gallery">
 					<ul>
 						<li><img src="./img/1.jpg"/></li>
@@ -53,7 +55,7 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 				</div>
 			</li>
 			<li>
-				<h4>SINGLE IMAGE LOOP</h4>
+				<h4>SINGLE IMAGE SAMPLE</h4>
 				<div id="ui-gallery-2" class="ui-gallery">
 					<ul>
 						<li><img src="./img/1.jpg"/></li>
@@ -61,7 +63,7 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 				</div>
 			</li>			
 			<li>
-				<h4>PADDING TEST</h4>
+				<h4>LEFT-PADDING TEST</h4>
 				<div id="ui-gallery-3" class="ui-gallery">
 					<ul>
 						<li><img src="./img/1.jpg"/></li>
@@ -74,7 +76,7 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 			<li>
 				<dl>
 					<dt>
-						<h4>MOBILE TEST</h4>					
+						<h4>MOBILE SAMPLE</h4>					
 						<div id="ui-gallery-4" class="ui-gallery">
 							<ul>
 								<li><img src="./img/1.jpg"/></li>
@@ -85,7 +87,7 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 						</div>
 					</dt>
 					<dd> 
-						<h4>FADE EFFECT TEST</h4>					
+						<h4>FADE-EFFECT SAMPLE</h4>					
 						<div id="ui-gallery-5" class="ui-gallery">
 							<ul>
 								<li><img src="./img/1.jpg"/></li>
@@ -102,8 +104,8 @@ button					{margin-top:25px; width:100%; height:42px; background-color:#4c8cfc; 
 </body>
 <script type="text/javascript">
 /*
-이미지 슬라이더 개발 노트
-*/
+ * author : cheep@cheep.co.kr
+ */
 	
 function doReady(){
 	uiGallery({
@@ -386,7 +388,10 @@ function uiGallery(object){
 			}
 			
 		container.style.height = Math.round(width * self.ratio) + "px";
-		if(self.effect == "fade") return;
+		if(self.effect == "fade"){
+			doPlay();
+			return;
+			}
 		
 		width += margin;
 
