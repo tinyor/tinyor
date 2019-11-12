@@ -29,6 +29,7 @@ body					{background-color:#f8f8f8; font-size:13px; overflow:auto}
 main					{margin:50px auto; padding:50px; width:100%; max-width:768px; background-color:white; border-radius:10px; border:1px solid #e0e0e0; box-sizing:border-box}
 main > ul > li + li		{margin-top:50px}
 
+dl dt, dl dd			{vertical-align:top}
 dl dt					{padding-right:10px}
 dl dd					{padding-left:10px}
 
@@ -118,7 +119,8 @@ function doReady(){
 		
 	uiGallery({
 		container	: "ui-gallery-3",
-		padding		: 25,		
+		margin		: 10,
+		padding		: 25,
 		infinite	: true,
 		autoplay	: true
 		});
