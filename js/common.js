@@ -23,8 +23,8 @@ function getValue(name)							{var node=document.getElementsByName(name);if(node
 function getQuery(name)							{var url=window.location.href;url="&"+url.substr(url.indexOf("?")+1);var a=url.indexOf("&"+name+"=");if(a<0)return "";else var a=url.indexOf("=",a+1)+1;var b=url.indexOf("&",a);if(b==-1)b=url.length;var v=url.substring(a,b);if(v==undefined)v="";return decodeURIComponent(v);}
 function getScrollTop()							{return Math.max(document.documentElement.scrollTop, document.body.scrollTop);}
 function getScrollLeft()						{return Math.max(document.documentElement.scrollLeft, document.body.scrollLeft);}
-function getWindowWidth()						{return window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;}
-function getWindowHeight()						{return window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;}
+function getWindowWidth()						{return document.documentElement.clientWidth||document.body.clientWidth;}
+function getWindowHeight()						{return document.documentElement.clientHeight||document.body.clientHeight;}
 
 /* ******** STRING ******** */
 function firstCase(value)						{var node=value.split(" ");for(var i=0;i<node.length;i++)node[i]=node[i].charAt(0).toUpperCase()+node[i].slice(1).toLowerCase();return node.join(" ");}
@@ -35,6 +35,7 @@ function removeArray(array,index)				{return array.splice(index,1);}
 function sortArray(array,order,index)			{var a1=array.slice();var a2=(order=="asc"||order=="az")?a1.sort(function(a,b){return a-b}):a1.sort(function(a,b){return b-a});if(index!=true)return a2;var length=array.length;var a3=new Array(length-1);for(var i=0;i<length;i++)a3[i]=a2.indexOf(array[i]);return a3;}
 function minArray(array)						{return array.indexOf(Math.min.apply(null, array));}
 function maxArray(array)						{return array.indexOf(Math.max.apply(null, array));}
+function combineObject(object1,object2)			{var object3={};for(var i in object1){object3[i]=object1[i]};for(var i in object2){object3[i]=object2[i]};return object3;}
 
 /* ******** DATE ******** */
 function getElapse(today,year,month,day)		{if(today==undefined||today=="")today=calendar();if(year==undefined||year=="")year=0;if(month==undefined||month=="")month=0;if(day==undefined||day=="")day=0;today=today.toString();var date=new Date;date.setFullYear(Number(today.substr(0,4))+Number(year),Number(today.substr(4,2)-1)+Number(month),Number(today.substr(6,2))+Number(day));var day=date.getDate().toString();day=(day.length<2)?"0"+day:day;var month=(date.getMonth()+1).toString();month=(month.length<2)?"0"+month:month;var year=date.getFullYear().toString();return Number(year+month+day);}
@@ -81,8 +82,7 @@ function isMobileDevice()						{if(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile
 /* ******** COOKIE ******** */
 function setCookie(name,value,day)				{var date=new Date;date.setTime(date.getTime()+(day*24*60*60*1000));var expire="expires="+date.toUTCString();document.cookie=name+"="+value+";"+expire+";path=/";}
 function getCookie(name)						{var array=document.cookie.split(";");for(var i=0;i<array.length;i++){var value=array[i].split("=");value[0]=value[0].substr(value[0].indexOf(" ")+1);if(value[0]==name)return value[1];}return "";}
-
-Object.prototype.combine = function(object){var newObject={};for(var i in this){newObject[i]=this[i]};for(var i in object){newObject[i]=object[i]};return newObject;}
+	
 String.prototype.replaceAll = function(a,b){return this.replace(new RegExp(a,"g"),b);}
 
 if(!("classList" in Element.prototype)) {
@@ -120,4 +120,85 @@ if(!("classList" in Element.prototype)) {
 				};
 			}
 		});
+	};
+	
+if(!("IntersectionObserver" in window)) {
+	function IntersectionObserver(callback, option){
+		var self = {
+			node		: [],
+			callback	: callback,
+			option		: option,
+			this		: this,
+			event		: false,
+			timer		: undefined
+			};
+
+		IntersectionObserver.prototype.observe = function(node){
+			if(self.node.indexOf(node) == -1)
+				self.node.push(node);
+
+			if(self.event == false && self.node.length > 0){
+				self.event = true;
+				window.addEventListener("scroll", doCheck);
+				if(self.timer) clearTimeout(self.timer);
+				self.timer = setTimeout(doCheck, 100);
+				}
+			}
+
+		IntersectionObserver.prototype.unobserve = function(node){
+			var index = self.node.indexOf(node);
+			if(index > -1) self.node.splice(index, 1);
+			if(self.node.length == 0){
+				window.removeEventListener("scroll", doCheck);		
+				self.event = false;
+				}
+			}
+
+		var isView = function(rect){
+			var width = self.width;
+			var height = self.height;
+			var top = rect.top >= 0 && rect.top < height;
+			var bottom = rect.bottom >= 0 && rect.bottom < height;
+			var left = rect.left >= 0 && rect.left < width;
+			var right = rect.right >= 0 && rect.right < width;
+			// return (top || bottom) && (left || right);
+			return (top || bottom);
+			}
+
+		var doCheck = function(){
+			console.log("check");
+			var node = self.node;
+			var width = self.width = getWindowWidth();
+			var height = self.height = getWindowHeight();
+			var entries = {};
+			var threshold = self.option.threshold || 0;
+			var ratio = 1;
+			var getValue = function(value, max){
+				return (value < 0) ? 0 : (value > max) ? max : value;
+				};
+
+			for(var i = 0; i < node.length; i++){
+				var rect = node[i].getBoundingClientRect();		// reflow
+				if(isView(rect)){
+					var top = getValue(rect.top, height);
+					var bottom = getValue(rect.bottom, height);
+					var left = getValue(rect.left, width);
+					var right = getValue(rect.right, width);
+					ratio = ((bottom - top) / rect.height).toFixed(2);
+					// ratio = (((right - left) * (bottom - top)) / (rect.width * rect.height)).toFixed(2);
+					if(threshold <= ratio){
+						entries[i] = {
+							target	: node[i],
+							intersectionRatio : ratio,
+							isIntersecting : true
+							};
+						}
+					}
+				}
+
+			var length = Object.keys(entries).length;
+			if(length > 0)
+				self.callback(entries, self.this);
+			}
+		}
 	};
