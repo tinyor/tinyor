@@ -1,47 +1,17 @@
 ﻿/* ******** FONT ******** */
-/*
-@font-face {
-	font-family	: "NotoSansKR";
-	font-style	: normal;
-	font-weight	: 300;
-	src			: local("Noto Sans KR Light"), local("NotoSansKR-Light"), url("/view/font/notosans/NotoSansKR-Light.woff") format("woff");
-	}
-	
 
 @font-face {
 	font-family	: "NotoSansKR";
 	font-style	: normal;
 	font-weight	: 300;
-	src			: local("Noto Sans KR DemiLight"), local("NotoSansKR-DemiLight"), url("/view/font/notosans/NotoSansKR-DemiLight.woff") format("woff");
-	}
-	
-@font-face {
-	font-family	: "NotoSansKR";
-	font-style	: normal;
-	font-weight	: 400;
-	src			: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("/view/font/notosans/NotoSansKR-Regular.woff") format("woff");
-	}
-	
-@font-face {
-	font-family	: "NotoSansKR";
-	font-style	: normal;
-	font-weight	: 700;
-	src			: local("Noto Sans KR Bold"), local("NotoSansKR-Bold"), url("/view/font/notosans/NotoSansKR-Bold.woff") format("woff");
-	}
-
-
-@font-face {
-	font-family	: "NotoSansKR";
-	font-style	: normal;
-	font-weight	: 300;
-	src			: local("Noto Sans KR Light"), local("NotoSansKR-Light"), url("/view/font/notosans/NotoSansKR-Light.woff") format("woff");
+	src			: local("Noto Sans KR Light"), local("NotoSansKR-Light"), url("./font/NotoSansKR-Light.woff") format("woff");
 	}
 
 @font-face {
 	font-family	: "NotoSansKR";
 	font-style	: normal;
 	font-weight	: 400;
-	src			: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("/view/font/notosans/NotoSansKR-Regular.woff") format("woff");
+	src			: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("./font/NotoSansKR-Regular.woff") format("woff");
 	}
 
 	
@@ -49,37 +19,10 @@
 	font-family	: "NotoSansKR";
 	font-style	: normal;
 	font-weight	: 500;
-	src			: local("Noto Sans KR Medium"), local("NotoSansKR-Medium"), url("/view/font/notosans/NotoSansKR-Medium.woff") format("woff");
+	src			: local("Noto Sans KR Medium"), local("NotoSansKR-Medium"), url("./font/NotoSansKR-Medium.woff") format("woff");
 	}
 
-@font-face {
-	font-family	: "NanumGothic";
-	font-style	: normal;
-	font-weight	: 400;
-	src			: local("Nanum Gothic"), local("NanumGothic"), url("/view/font/nanumgothic/NanumGothic-Regular.woff") format("woff");
-	}
-	
-@font-face {
-	font-family	: "NotoSansKR";
-	font-style	: normal;
-	font-weight	: 700;
-	src			: local("Noto Sans KR Bold"), local("NotoSansKR-Bold"), url("/view/font/notosans/NotoSansKR-Bold.woff") format("woff");
-	}
-	
-@font-face {
-	font-family	: "NotoSansKR";
-	font-style	: normal;
-	font-weight	: 900;
-	src			: local("Noto Sans KR Black"), local("NotoSansKR-Black"), url("/view/font/notosans/NotoSansKR-Black.woff") format("woff");
-	}
 
-@font-face {
-	font-family	: "Roboto";
-	font-style	: normal;
-	font-weight	: normal;
-	src			: local("Roboto"), local("Roboto-Regular"), url("/view/font/roboto/Roboto-Regular.woff") format("woff");
-	}	
-*/
 
 
 /* ******** COMMON ******** */
