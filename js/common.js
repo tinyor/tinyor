@@ -85,6 +85,9 @@ function getCookie(name)						{var array=document.cookie.split(";");for(var i=0;
 	
 String.prototype.replaceAll = function(a,b){return this.replace(new RegExp(a,"g"),b);}
 
+/* 
+	classList API FOR Internet Explorer 10
+*/
 if(!("classList" in Element.prototype)) {
 	Object.defineProperty(Element.prototype, "classList", {
 		get : function() {
@@ -121,7 +124,10 @@ if(!("classList" in Element.prototype)) {
 			}
 		});
 	};
-	
+
+/* 
+	IntersectionObserver API FOR Internet Explorer
+*/
 if(!("IntersectionObserver" in window)) {
 	function IntersectionObserver(callback, option){
 		var self = {
@@ -166,7 +172,6 @@ if(!("IntersectionObserver" in window)) {
 			}
 
 		var doCheck = function(){
-			console.log("check");
 			var node = self.node;
 			var width = self.width = getWindowWidth();
 			var height = self.height = getWindowHeight();
