@@ -816,7 +816,7 @@ function uiPieChart(object){
 			this.chart.pieOpacityStart[i] = this.chart.pieOpacityEnd[i] = 1;
 
 		// 3. 차트의 오브젝트를 업데이트한다.
-		this.chart = this.chart.combine(object);
+		this.chart = combineObject(this.chart, object);
 
 		// 4.	캔버스를 셋팅한다.
 		var container = canvas = object.canvas;
