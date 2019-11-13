@@ -180,7 +180,7 @@ dl dd										{display:block; padding-left:0}
 				<div class="ui-camera">
 					<div id="ui-camera-top" class="top">
 						<img id="ui-camera-image" class="" src=""/>
-						<input id="ui-camera-file" type="file" onclick="uiCamear(this)" onchange="uiCamear(this)" accept="image/*;capture=camera"/>
+						<input id="ui-camera-file" type="file" onclick="uiCamera(this)" onchange="uiCamera(this)" accept="image/*;capture=camera"/>
 					</div>
 
 					<div id="ui-camera-middle" class="middle">
@@ -1124,20 +1124,17 @@ function uiPieChart(object){
 
 /* ******** Draft ******* */
 
-function uiCamear(object){
+function uiCamera(object){
 	if(object.value == ""){
-		uiCamear.state = undefined;
+		uiCamera.state = undefined;
 		document.getElementById("ui-camera-top").className = "top";
 		var node = byTag(byId("ui-camera-middle"), "td");
 		for(var i = 0; i < node.length; i++)
 			if(node[i].className == "") node[i].innerHTML = "-";
-//		document.getElementById("ui-camera-bottom").innerHTML = "-";
-//		document.getElementById("ui-camera-bottom").className = "bottom";	
 		return;
 		}
 		
-	if(uiCamear.state != undefined) return;
-	uiCamear.state = true;
+	uiCamera.state = true;
 
 	file instanceof Blob;
 	var file = object.files[0];
