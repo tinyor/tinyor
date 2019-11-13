@@ -22,49 +22,62 @@
 	<link rel="stylesheet" type="text/css" href="./css/ui.css?v=4"/>
 
 	<script type="text/javascript" src="./js/common.js"></script>
-	
+	<script type="text/javascript" src="./js/jquery.js"></script>
 	<style type="text/css">
 
-body									{background-color:#f8f8f8}
-main									{margin:50px auto; padding:50px; width:100%; max-width:768px; background-color:white; border-radius:10px; border:1px solid #e0e0e0; box-sizing:border-box}
-section + section						{margin-top:75px}
+body										{background-color:#f8f8f8}
+main										{margin:50px auto; padding:50px; width:100%; max-width:768px; background-color:white; border-radius:10px; border:1px solid #e0e0e0; box-sizing:border-box}
+section + section							{margin-top:75px}
 
-section .top							{text-align:center}
-section .top h3							{position:relative; display:inline-block; margin-bottom:55px; font-size:32px; overflow:visible}
-section .top h3:before					{content:""; position:absolute; left:50%; margin-left:-32.5px; bottom:-20px; width:75px; height:4px; background-color:#4c8cfc}
-section .top h3 i						{font-weight:bold; font-style:italic; font-family:"Times New Roman", "Times", "Serif"; color:#333}  
-section .bottom p						{margin-top:25px; padding:25px; background-color:#f5f5f5; border-radius:10px; font-size:16px; font-weight:300; color:#333; box-sizing:border-box}
-
-dl										{margin-top:30px}
-dl dt									{padding-right:10px; vertical-align:top}
-dl dd									{padding-left:10px; vertical-align:top}
-dl + dl									{margin-top:50px}
+dl											{margin-top:30px}
+dl dt										{padding-right:10px; vertical-align:top}
+dl dd										{padding-left:10px; vertical-align:top}
+dl + dl										{margin-top:50px}
 
 
 
-/* ******** SECTION ******** */
+.top										{text-align:center}
+.top h3										{position:relative; display:inline-block; margin-bottom:60px; line-height:1; font-size:32px; overflow:visible}
+.top h3:before								{content:""; position:absolute; left:50%; margin-left:-32.5px; bottom:-25px; width:75px; height:4px; background-color:#4c8cfc}
+.top h3 i									{font-weight:bold; font-style:italic; font-family:"Times New Roman", "Times", "Serif"; color:#333}  
+.bottom p									{margin-top:25px; padding:25px; background-color:#f5f5f5; border-radius:10px; font-size:16px; font-weight:300; color:#333; box-sizing:border-box}
 
-.title 									{position:relative; margin-top:10px; margin-bottom:50px; height:250px; text-align:center; overflow:hidden}
-.title h2								{line-height:1; font-size:36px; color:#111}
-.title h4								{font-size:18px; color:#333}
-.title img								{display:block; margin:0 auto}
-.title figcaption						{position:absolute; left:0; top:175px; width:100%}
+.title 										{position:relative; margin:10px 0; height:240px; text-align:center; overflow:hidden}
+.title h2									{line-height:1; font-size:36px; color:#111}
+.title h4									{font-size:18px; color:#333}
+.title img									{display:block; margin:0 auto}
+.title figcaption							{position:absolute; left:0; top:175px; width:100%}
 
-.ui-chart								{min-height:275px}
-.ui-chart canvas						{width:100%; height:100%}
+.ui-chart									{min-height:275px}
+.ui-chart canvas							{width:100%; height:100%}
 
+.ui-camera									{position:relative; margin:0 auto; width:100%; overflow:hidden}
+
+.ui-camera .top 							{position:relative; width:100%; padding-bottom:66.66%; background:#f8f8f8 url("./img/icon_camera_gray.png") no-repeat center center / 30%; border:1px solid #eee; font-size:0; box-sizing:border-box; overflow:hidden}
+.ui-camera .top.focus						{padding-bottom:0; background:white}
+.ui-camera .top img							{width:100%; /*position:absolute; left:0; top:0; width:100%; height:100%;*/ opacity:0; object-fit:cover; transition:opacity 0.4s}
+.ui-camera .top.focus img					{opacity:1}
+.ui-camera .top input						{position:absolute; left:0; top:0; width:100%; height:100%; opacity:0}
+
+.ui-camera .middle							{margin-top:15px} 
+.ui-camera .middle table					{width:100%; text-align:center; font-size:13px}
+.ui-camera .middle table thead				{background-color:#f0f0f0; text-align:center; font-weight:500}
+.ui-camera .middle table td					{padding:7px; border:1px solid #eee; font-weight:300}
+.ui-camera .middle table td:nth-child(odd)	{width:22%; background-color:#f8f8f8; font-weight:500}
+
+.ui-camera .bottom							{margin-top:15px; padding:0 10px; height:35px; background-color:#f8f8f8; border:1px solid #eee; line-height:35px; text-align:center; font-style:italic; font-weight:bold; font-family:"Times"; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; box-sizing:border-box}
+.ui-camera .bottom span						{font-weight:normal}
+.ui-camera .bottom.red						{background-color:#d93e3c; border-color:#d93e3c; color:white}
+.ui-camera .bottom.blue						{background-color:#4184f3; border-color:#4184f3; color:white}
 
 
 @media(max-width:768px){
-main									{margin:0; padding:30px 20px; border-radius:0; border:none}
-section									{}
-dl										{margin-top:0}
-dl dt									{display:block; margin-bottom:25px; padding-right:0}
-dl dd									{display:block; padding-left:0}
-
-.gallery .middle > div:first-child		{display:none}
-	}
-	</style>
+main										{margin:0; padding:30px 20px; border-radius:0; border:none}
+dl											{margin-top:0}
+dl dt										{display:block; margin-bottom:25px; padding-right:0}
+dl dd										{display:block; padding-left:0}
+.gallery .middle > div:first-child			{display:none}
+	}	</style>
 </head>
 
 <body onload="doReady()">
@@ -158,8 +171,51 @@ dl dd									{display:block; padding-left:0}
 				</p>
 			</div>			
 		</section>
+		
+		<section class="camera">
+			<div class="top">
+				<h3><i>Image Classification</i></h3>
+			</div>
+			<div class="middle">
+				<div class="ui-camera">
+					<div id="ui-camera-top" class="top">
+						<img id="ui-camera-image" class="" src=""/>
+						<input id="ui-camera-file" type="file" onclick="uiCamear(this)" onchange="uiCamear(this)" accept="image/*;capture=camera"/>
+					</div>
+
+					<div id="ui-camera-middle" class="middle">
+						<table>
+							<tr>
+								<td class="label">WIDTH</td>
+								<td id="ui-camera-width">-</td>
+								<td class="label">HEIGHT</td>
+								<td id="ui-camera-height">-</td>
+							</tr>
+							<tr>
+								<td class="label">SIZE</td>
+								<td id="ui-camera-size">-</td>
+								<td class="label">EXIF</td>
+								<td id="ui-camera-exif">-</td>
+							</tr>
+							<tr>
+								<td class="label">URL</td>
+								<td id="ui-camera-url" colspan="3">-</td>
+							</tr>			
+						</table>
+					</div>
+
+					<div id="ui-camera-bottom" class="bottom">-</div>
+				</div>
+			</div>
+			<div class="bottom">
+				<p>
+					외부 API 서비르르 이용해 구현한 것으로 자동차 이미지에서 자동차 종류를 구분합니다.
+				</p>
+			</div>			
+		</section>		
 	</main>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.1.0/exif.min.js"></script>
 <script type="text/javascript">
 function doReady(){
 	uiGallery({
@@ -1065,5 +1121,143 @@ function uiPieChart(object){
 	this.fnReady(object);
 	}
 
+
+
+/* ******** Draft ******* */
+
+function uiCamear(object){
+	if(object.value == ""){
+		uiCamear.state = undefined;
+		document.getElementById("ui-camera-top").className = "top";
+		var node = byTag(byId("ui-camera-middle"), "td");
+		for(var i = 0; i < node.length; i++)
+			if(node[i].className == "") node[i].innerHTML = "-";
+		document.getElementById("ui-camera-bottom").innerHTML = "-";
+		document.getElementById("ui-camera-bottom").className = "bottom";	
+		return;
+		}
+		
+	if(uiCamear.state != undefined) return;
+	uiCamear.state = true;
+
+	file instanceof Blob;
+	var file = object.files[0];
+	const maxWidth = 1024;
+	const maxHeight = 1024;
+	
+	var image = new Image();
+	image.onload = function(){
+		var width = image.width;
+		var height = image.height;
+		if(width > height){
+			if(width > maxWidth){
+				height = Math.round(height * maxWidth / width);
+				width = maxWidth;
+				}
+			}
+		else{
+			if(height > maxHeight){
+				width = Math.round(width * maxHeight / height);
+				height = maxHeight;
+				}
+			}
+			
+		var canvas = document.createElement("canvas");
+		canvas.width = width;
+		canvas.height = height;
+		var ctx = canvas.getContext("2d");
+		ctx.drawImage(this, 0, 0, width, height);
+
+		try{
+			EXIF.getData(file, function(){
+				var orientation = EXIF.getTag(this, "Orientation");
+				
+				if(orientation){
+					ctx.save();
+					switch(orientation){
+						case 3 :
+						case 4 :
+							ctx.translate(0, height);
+							ctx.scale(1, -1);
+							ctx.drawImage(image, 0, 0, width, height);
+							break;
+
+						case 5 :
+						case 6 :
+							canvas.width = height;
+							canvas.height = width;	
+							ctx.translate(height, 0);
+							ctx.rotate(90 * Math.PI / 180);
+							ctx.drawImage(image, 0, 0, width, height);
+							break;
+
+						case 7 :
+						case 8 :
+							canvas.width = height;
+							canvas.height = width;	
+							ctx.translate(0, width);
+							ctx.rotate(270 * Math.PI / 180);
+							ctx.drawImage(image, 0, 0, width, height);
+							break;
+						}
+					ctx.restore();
+					}
+
+				canvas.toBlob(function(blob){
+					var url = URL.createObjectURL(blob);
+					byId("ui-camera-width").innerHTML = getComma(width) + " (" + getComma(image.width) + ")";
+					byId("ui-camera-height").innerHTML = getComma(height) + " (" + getComma(image.height) + ")";
+					byId("ui-camera-exif").innerHTML = orientation || "-";
+					byId("ui-camera-size").innerHTML = getComma(Number((blob.size / 1024 / 1024).toFixed(2))) + "MB";
+					byId("ui-camera-url").innerHTML = byId("ui-camera-image").src = url;
+					document.getElementById("ui-camera-top").className = "top focus";
+					byId("ui-camera-image").style.width = "100%";
+
+					uiCameraSubmit(blob);
+					}, "image/png", 1);
+				});
+			}
+		catch(e){console.log(e)}		
+		}
+		
+	image.src = URL.createObjectURL(file);
+	}
+
+function uiCameraSubmit(blob){
+	var file = byId("ui-camera-file").files[0];
+	if(!file) return;
+	
+	document.getElementById("ui-camera-bottom").innerHTML = "<b>Searching...</b>";
+	document.getElementById("ui-camera-bottom").className = "bottom";
+	
+	$.ajax({
+		url			: "https://dev.sighthoundapi.com/v1/recognition?objectType=vehicle",
+		type		: "post",
+		beforeSend	: function(request){
+			request.setRequestHeader("X-Access-Token", "lJcCHpKSkKllB9WVLjC7vq0DV1pFEMheBakC");
+			},
+		data		: blob,
+		processData	: false,
+		contentType	: "application/octet-stream",
+		success		: function(data){
+			var data = eval(data);
+			var object = data.objects;
+			var brand = "";
+			
+			if(object.length > 0){
+				object = object[0].vehicleAnnotation.attributes.system;
+				var brand = object.make.name;
+				var model = object.model.name;
+				var color = object.color.name;
+				if(brand != "")
+					result = brand + " " + model + " <span>(" + color + ")</span>";
+				}
+				
+			document.getElementById("ui-camera-bottom").className = (brand != "") ? "bottom blue" : "bottom red";
+			document.getElementById("ui-camera-bottom").innerHTML = (brand != "") ? result : "No matching vehicle found.";
+			uiCamear.state = undefined;
+			}
+		});
+	}
 </script>
 </html>

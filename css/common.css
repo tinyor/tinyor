@@ -60,7 +60,7 @@ input:disabled												{background-color:transparent}
 input[type=password]										{font-family:sans-serif}
 */
 input[type=file],
-input[type=file]::-webkit-file-upload-button				{visibility:hidden; opacity:1; cursor:pointer}
+input[type=file]::-webkit-file-upload-button				{/*visibility:hidden;*/ opacity:0; cursor:pointer}
 
 ::-webkit-input-placeholder									{color:#bbb}
 ::-moz-placeholder 											{color:#bbb; opacity:1}
