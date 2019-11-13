@@ -1,5 +1,5 @@
-# Sample
-> https://tinyor.github.io/tinyor/sample.html>
+# Sample.html
+> https://tinyor.github.io/tinyor/sample.html
 - Image Slider
 - Image Compare
 - Pie Chart
