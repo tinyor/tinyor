@@ -203,13 +203,12 @@ dl dd										{display:block; padding-left:0}
 							</tr>			
 						</table>
 					</div>
-
-					<div id="ui-camera-bottom" class="bottom">-</div>
 				</div>
 			</div>
 			<div class="bottom">
 				<p>
-					외부 API 서비스를 이용해 구현한 것으로 자동차 이미지에서 자동차 종류를 구분합니다.
+					외부 API 서비스를 이용해 업로드된 이미지에서 자동차 종류를 구분합니다.<br>
+					(깃-허브 CORS 정책을 변경할 수 없기 때문에 작동은 하지 않습니다.)
 				</p>
 			</div>			
 		</section>		
@@ -1132,8 +1131,8 @@ function uiCamear(object){
 		var node = byTag(byId("ui-camera-middle"), "td");
 		for(var i = 0; i < node.length; i++)
 			if(node[i].className == "") node[i].innerHTML = "-";
-		document.getElementById("ui-camera-bottom").innerHTML = "-";
-		document.getElementById("ui-camera-bottom").className = "bottom";	
+//		document.getElementById("ui-camera-bottom").innerHTML = "-";
+//		document.getElementById("ui-camera-bottom").className = "bottom";	
 		return;
 		}
 		
@@ -1213,7 +1212,7 @@ function uiCamear(object){
 					document.getElementById("ui-camera-top").className = "top focus";
 					byId("ui-camera-image").style.width = "100%";
 
-					uiCameraSubmit(blob);
+					// uiCameraSubmit(blob);
 					}, "image/png", 1);
 				});
 			}
@@ -1223,41 +1222,5 @@ function uiCamear(object){
 	image.src = URL.createObjectURL(file);
 	}
 
-function uiCameraSubmit(blob){
-	var file = byId("ui-camera-file").files[0];
-	if(!file) return;
-	
-	document.getElementById("ui-camera-bottom").innerHTML = "<b>Searching...</b>";
-	document.getElementById("ui-camera-bottom").className = "bottom";
-	
-	$.ajax({
-		url			: "https://dev.sighthoundapi.com/v1/recognition?objectType=vehicle",
-		type		: "post",
-		beforeSend	: function(request){
-			request.setRequestHeader("X-Access-Token", "YncjKU2iw0whw90nkqHe2AaXUFROtUSoikOF");
-			},
-		data		: blob,
-		processData	: false,
-		contentType	: "application/octet-stream",
-		success		: function(data){
-			var data = eval(data);
-			var object = data.objects;
-			var brand = "";
-			
-			if(object.length > 0){
-				object = object[0].vehicleAnnotation.attributes.system;
-				var brand = object.make.name;
-				var model = object.model.name;
-				var color = object.color.name;
-				if(brand != "")
-					result = brand + " " + model + " <span>(" + color + ")</span>";
-				}
-				
-			document.getElementById("ui-camera-bottom").className = (brand != "") ? "bottom blue" : "bottom red";
-			document.getElementById("ui-camera-bottom").innerHTML = (brand != "") ? result : "No matching vehicle found.";
-			uiCamear.state = undefined;
-			}
-		});
-	}
 </script>
 </html>
