@@ -4,14 +4,14 @@
 	font-family	: "NotoSansKR";
 	font-style	: normal;
 	font-weight	: 300;
-	src			: local("Noto Sans KR Light"), local("NotoSansKR-Light"), url("./font/NotoSansKR-Light.woff") format("woff");
+	src			: local("Noto Sans KR Light"), local("NotoSansKR-Light"), url("../font/NotoSansKR-Light.woff") format("woff");
 	}
 
 @font-face {
 	font-family	: "NotoSansKR";
 	font-style	: normal;
 	font-weight	: 400;
-	src			: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("./font/NotoSansKR-Regular.woff") format("woff");
+	src			: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("../font/NotoSansKR-Regular.woff") format("woff");
 	}
 
 	
@@ -19,7 +19,7 @@
 	font-family	: "NotoSansKR";
 	font-style	: normal;
 	font-weight	: 500;
-	src			: local("Noto Sans KR Medium"), local("NotoSansKR-Medium"), url("./font/NotoSansKR-Medium.woff") format("woff");
+	src			: local("Noto Sans KR Medium"), local("NotoSansKR-Medium"), url("../font/NotoSansKR-Medium.woff") format("woff");
 	}
 
 
