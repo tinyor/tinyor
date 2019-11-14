@@ -127,6 +127,22 @@ if(!("classList" in Element.prototype)) {
 
 /* 
 	IntersectionObserver API FOR Internet Explorer
+	- 옵져버를 사용하는 이유 중 하나가
+	  이미지 지연 로드 등과 같은 성능 이슈와 관련되어 있다는 것을 고려했을 때
+	  자바스크립트의 타이머 인터버를 사용한 감시는 문제가 있다고 생각한다.
+	  
+	- 데스크톱 환경보다 모바일 환경에 더욱 의미가 있는데,
+	  모바일 환경에서 옵져버가 지원될 가능성이 매우 크다.
+	  
+	- getBoundingClientRect 의 리플로우 이슈에도 불구하고,
+	  스크롤 시마다 체크하게 한 이유는
+	  (로딩 이후 비동기 등으로 이미지가 추가되었을 때)
+	  위치 정보 값이 동기화되지 않은 현상이 발생할 수 있기 때문이다.
+	  
+	- 세로 스크롤 이벤트 시에만 감지하도록 구현하였는데,
+	  최근 대부분 비동기 방식을 통해 이미지가 추가되고,
+	  터치나 마우스 이벤트로 핸들링 되기 때문에
+	  가로 스크롤 이벤트가 트리거 되지 않을 가능성이 크기 때문이다.
 */
 if(!("IntersectionObserver" in window)) {
 	function IntersectionObserver(callback, option){
@@ -183,7 +199,7 @@ if(!("IntersectionObserver" in window)) {
 				};
 
 			for(var i = 0; i < node.length; i++){
-				var rect = node[i].getBoundingClientRect();		// reflow
+				var rect = node[i].getBoundingClientRect();
 				if(isView(rect)){
 					var top = getValue(rect.top, height);
 					var bottom = getValue(rect.bottom, height);
